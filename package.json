@@ -1,18 +1,20 @@
 {
   "name": "remark-crossref",
-  "version": "0.0.1",
-  "main": "index.js",
-  "license": "MIT",
+  "description": "wooorm/remark plugin for corss-references inspired of pandoc-crossref",
+  "version": "0.0.0",
+  "dependencies": {
+    "unist-util-visit": "^1.1.1"
+  },
   "devDependencies": {
     "@types/node": "^6.0.48",
+    "remark": "^6.2.0",
     "remark-parse": "^2.2.0",
     "typescript": "^2.0.10",
     "unified": "^5.1.0"
   },
+  "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "build": "tsc"
-  },
-  "dependencies": {
-    "unist-util-visit": "^1.1.1"
   }
 }
