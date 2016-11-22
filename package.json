@@ -1,0 +1,18 @@
+{
+  "name": "remark-crossref",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^6.0.48",
+    "remark-parse": "^2.2.0",
+    "typescript": "^2.0.10",
+    "unified": "^5.1.0"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "unist-util-visit": "^1.1.1"
+  }
+}
