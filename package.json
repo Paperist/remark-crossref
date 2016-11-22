@@ -1,6 +1,6 @@
 {
   "name": "remark-crossref",
-  "description": "wooorm/remark plugin for corss-references inspired of pandoc-crossref",
+  "description": "wooorm/remark plugin for corss-references inspired by pandoc-crossref",
   "version": "0.0.0",
   "dependencies": {
     "unist-util-visit": "^1.1.1"

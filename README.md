@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-> [wooorm/remark] plugin for corss-references inspired of [pandoc-crossref]
+> [wooorm/remark] plugin for corss-references inspired by [pandoc-crossref]
 
 [wooorm/remark]: https://github.com/wooorm/remark
 [pandoc-crossref]: https://github.com/lierdakil/pandoc-crossref
