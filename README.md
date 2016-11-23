@@ -16,10 +16,8 @@
 
 ## Install
 
-**TBD**
-
 ```
-npm i remark remark-crossref remark-latex
+npm i remark 3846masa/remark-crossref#build 3846masa/remark-latex#build
 ```
 
 ## Usage
