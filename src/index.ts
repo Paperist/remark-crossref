@@ -24,14 +24,20 @@ function tokenizeTableCaption (
   for ( ; idx < length; idx++) {
     const char = value.charAt(idx);
     firstLine += char;
-    if (char === C_NEWLINE) break;
+    if (char === C_NEWLINE) {
+      break;
+    }
   }
 
   for (idx++; idx < length; idx++) {
     const char = value.charAt(idx);
-    if (char === C_SPACE || char === C_TAB) continue;
-    if (char !== C_NEWLINE) return;
-    if (char === C_NEWLINE) break;
+    if (char === C_SPACE || char === C_TAB) {
+      continue;
+    }
+    if (char === C_NEWLINE) {
+      break;
+    }
+    return;
   }
 
   const isMatched = new RegExp(/^(?:\s*table)?\s*:.*$/, 'im').test(firstLine);
@@ -44,8 +50,8 @@ function tokenizeTableCaption (
   }
 
   return eat(firstLine)({
+    children: this.tokenizeInline(firstLine, eat.now()),
     type: 'tableCaption',
-    children: this.tokenizeInline(firstLine, eat.now())
   });
 }
 
@@ -75,7 +81,7 @@ function tokenizeCrossReferenceLabel (
 
   return eat(matchStr)({
     type: 'crossReferenceLabel',
-    label: label,
+    label,
     value: matchStr,
   });
 }
@@ -124,7 +130,7 @@ function tokenizeCrossReference (
 
   return eat(matchStr)({
     type: 'crossReference',
-    identifier: identifier,
+    identifier,
     value: matchStr,
   });
 }
@@ -140,7 +146,7 @@ function locateCrossReference (
   value: string,
   fromIndex: number,
 ) {
-  return value.indexOf('[@', fromIndex);;
+  return value.indexOf('[@', fromIndex);
 }
 
 /**

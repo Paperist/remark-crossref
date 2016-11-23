@@ -9,6 +9,7 @@
     "@types/node": "^6.0.48",
     "remark": "^6.2.0",
     "remark-parse": "^2.2.0",
+    "tslint": "^4.0.1",
     "typescript": "^2.0.10",
     "unified": "^5.1.0"
   },

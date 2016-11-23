@@ -1,0 +1,10 @@
+{
+  "extends": "tslint:latest",
+  "jsRules": {},
+  "rules": {
+    "quotemark": [
+      true,
+      "single"
+    ]
+  }
+}
