@@ -1,5 +1,13 @@
 
-# Created by https://www.gitignore.io/api/node
+# Created by https://www.gitignore.io/api/visualstudiocode,node
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 
 ### Node ###
 # Logs
@@ -50,5 +58,5 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
-# build
+# Build
 lib
