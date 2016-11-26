@@ -1,22 +1,29 @@
 {
-  "name": "remark-crossref",
+  "name": "@paperist/remark-crossref",
   "description": "wooorm/remark plugin for corss-references inspired by pandoc-crossref",
   "version": "0.0.0",
-  "dependencies": {
-    "unist-util-visit": "^1.1.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^6.0.48",
-    "remark": "^6.2.0",
-    "remark-parse": "^2.2.0",
     "tslint": "^4.0.1",
-    "typescript": "^2.0.10",
-    "unified": "^5.1.0"
+    "typescript": "^2.0.10"
   },
+  "files": [
+    "package.json",
+    "README",
+    "LICENSE",
+    "lib",
+    "index.js"
+  ],
+  "keywords": [
+    "crossref",
+    "markdown",
+    "remark"
+  ],
   "license": "MIT",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "commit": "bash ./commit.sh"
+    "test": "exit 0"
   }
 }
