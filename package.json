@@ -1,7 +1,7 @@
 {
   "name": "@paperist/remark-crossref",
   "description": "wooorm/remark plugin for corss-references inspired by pandoc-crossref",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^6.0.48",
