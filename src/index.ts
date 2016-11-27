@@ -22,11 +22,13 @@ function tokenizeCrossReferenceLabel (
   }
 
   const matchStr = matches[1];
-  const label = matches[2];
+  const content = matches[2];
+  const [ label, optionStr ] = content.split(/\s+/);
 
   return eat(matchStr)({
-    type: 'crossReferenceLabel',
     label,
+    options: qs.parse(optionStr, ',', '='),
+    type: 'crossReferenceLabel',
     value: matchStr,
   });
 }
@@ -71,12 +73,10 @@ function tokenizeCrossReference (
   }
 
   const matchStr = matches[1];
-  const content = matches[2];
-  const [ identifier, optionStr ] = content.split(/\s+/);
+  const identifier = matches[2];
 
   return eat(matchStr)({
     identifier,
-    options: qs.parse(optionStr, ',', '='),
     type: 'crossReference',
     value: matchStr,
   });
