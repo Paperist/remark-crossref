@@ -1,3 +1,5 @@
+import * as qs from 'querystring';
+
 /**
  * Tokenise a cross-ref label.
  *
@@ -69,11 +71,13 @@ function tokenizeCrossReference (
   }
 
   const matchStr = matches[1];
-  const identifier = matches[2];
+  const content = matches[2];
+  const [ identifier, optionStr ] = content.split(/\s+/);
 
   return eat(matchStr)({
-    type: 'crossReference',
     identifier,
+    options: qs.parse(optionStr, ',', '='),
+    type: 'crossReference',
     value: matchStr,
   });
 }
