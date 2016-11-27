@@ -5,6 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^6.0.48",
+    "greenkeeper-postpublish": "^1.0.1",
     "tslint": "^4.0.1",
     "typescript": "^2.0.10"
   },
@@ -24,6 +25,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "exit 0"
+    "test": "exit 0",
+    "postpublish": "greenkeeper-postpublish"
   }
 }
