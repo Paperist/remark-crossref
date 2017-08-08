@@ -1,19 +1,8 @@
 import * as qs from 'querystring';
-import { UNIST } from 'unist';
 import { MDAST } from 'mdast';
 import * as RemarkParse from 'remark-parse';
 
 import { parse, ParseResult } from './peg/crossReferenceLabel';
-
-declare module 'mdast' {
-  export namespace MDAST {
-    interface CrossReferenceLabel extends UNIST.Text {
-      type: 'crossReferenceLabel';
-      label: string;
-      options: { [key: string]: any };
-    }
-  }
-}
 
 const CrossReferenceLabelLocator: RemarkParse.Locator = (value, fromIndex) => {
   return value.indexOf('{#', fromIndex);

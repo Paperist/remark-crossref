@@ -1,17 +1,7 @@
-import { UNIST } from 'unist';
 import { MDAST } from 'mdast';
 
 import * as Visit from 'unist-util-visit';
 import { parse, ParseResult } from './peg/crossReference';
-
-declare module 'mdast' {
-  export namespace MDAST {
-    interface CrossReference extends UNIST.Text {
-      type: 'crossReference';
-      identifiers: string[];
-    }
-  }
-}
 
 const CrossReferenceVisitor: Visit.Visitor = (
   node: MDAST.LinkReference,
