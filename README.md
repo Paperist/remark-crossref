@@ -89,10 +89,10 @@ Yields:
       "value": "Heading ",
     },
     {
-      "label": "sec:first",
-      "value": "{#sec:first}",
-      "options": {},
       "type": "crossReferenceLabel",
+      "value": "{#sec:first}",
+      "label": "sec:first",
+      "options": {}
     }
   ]
 }
