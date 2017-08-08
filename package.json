@@ -3,7 +3,7 @@
   "description": "wooorm/remark plugin for corss-references inspired by pandoc-crossref",
   "author": "3846masa <3846masahiro+git@gmail.com>",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/index.js",
   "files": [
     "lib"
