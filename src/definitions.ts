@@ -1,16 +1,14 @@
-import { UNIST } from 'unist';
+import * as mdast from 'mdast';
 
 declare module 'mdast' {
-  export namespace MDAST {
-    interface CrossReferenceLabel extends UNIST.Text {
-      type: 'crossReferenceLabel';
-      label: string;
-      options: { [key: string]: any };
-    }
+  export interface CrossReferenceLabel extends mdast.Literal {
+    type: 'crossReferenceLabel';
+    label: string;
+    options: { [key: string]: any };
+  }
 
-    interface CrossReference extends UNIST.Text {
-      type: 'crossReference';
-      identifiers: string[];
-    }
+  export interface CrossReference extends mdast.Literal {
+    type: 'crossReference';
+    identifiers: string[];
   }
 }

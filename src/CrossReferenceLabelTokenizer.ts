@@ -1,6 +1,6 @@
-import * as qs from 'querystring';
-import { MDAST } from 'mdast';
-import * as RemarkParse from 'remark-parse';
+import * as mdast from 'mdast';
+import qs from 'querystring';
+import RemarkParse from 'remark-parse';
 
 import { parse, ParseResult } from './peg/crossReferenceLabel';
 
@@ -8,11 +8,7 @@ const CrossReferenceLabelLocator: RemarkParse.Locator = (value, fromIndex) => {
   return value.indexOf('{#', fromIndex);
 };
 
-const CrossReferenceLabelTokenizerFunction: RemarkParse.TokenizerFunction = (
-  eat,
-  value,
-  silent
-) => {
+const CrossReferenceLabelTokenizerFunction = (eat: RemarkParse.Eat, value: string, silent?: boolean) => {
   let result: ParseResult;
   try {
     result = parse(value);
@@ -35,12 +31,9 @@ const CrossReferenceLabelTokenizerFunction: RemarkParse.TokenizerFunction = (
   });
   const fallbackStr = `{#${label}${optionsStr ? '\x20' + optionsStr : ''}}`;
 
-  const matchStr = value.substring(
-    result.location.start.offset,
-    result.location.end.offset
-  );
+  const matchStr = value.substring(result.location.start.offset, result.location.end.offset);
 
-  const node: MDAST.CrossReferenceLabel = {
+  const node: mdast.CrossReferenceLabel = {
     label,
     options,
     type: 'crossReferenceLabel',
@@ -50,14 +43,12 @@ const CrossReferenceLabelTokenizerFunction: RemarkParse.TokenizerFunction = (
   return eat(matchStr)(node);
 };
 
-const CrossReferenceLabelTokenizer: RemarkParse.Tokenizer = Object.assign(
-  CrossReferenceLabelTokenizerFunction,
-  {
-    locator: CrossReferenceLabelLocator,
-    notInBlock: true,
-    notInList: true,
-    notInLink: true,
-  }
-);
+const CrossReferenceLabelTokenizer = Object.assign(CrossReferenceLabelTokenizerFunction, {
+  locator: CrossReferenceLabelLocator,
+  onlyAtStart: false,
+  notInBlock: true,
+  notInList: true,
+  notInLink: true,
+} as Partial<RemarkParse.Tokenizer>) as RemarkParse.Tokenizer;
 
 export default CrossReferenceLabelTokenizer;

@@ -1,13 +1,11 @@
-import { MDAST } from 'mdast';
+import * as mdast from 'mdast';
 
 import * as Visit from 'unist-util-visit';
 import { parse, ParseResult } from './peg/crossReference';
 
-const CrossReferenceVisitor: Visit.Visitor = (
-  node: MDAST.LinkReference,
-  index,
-  parent
-) => {
+type LinkReference = mdast.LinkReference & mdast.Reference & mdast.Association;
+
+const CrossReferenceVisitor: Visit.Visitor<LinkReference> = (node, index, parent) => {
   if (index == null || parent == null) {
     return true;
   }
@@ -25,7 +23,7 @@ const CrossReferenceVisitor: Visit.Visitor = (
   }
 
   // Replace LinkReference to CrossReference
-  const crossRefNode: MDAST.CrossReference = {
+  const crossRefNode: mdast.CrossReference = {
     identifiers,
     type: 'crossReference',
     value: `[${node.identifier}]`,
