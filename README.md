@@ -7,10 +7,9 @@
 [npm]: https://www.npmjs.com/package/@paperist/remark-crossref
 [license]: https://3846masa.mit-license.org
 [standard-readme]: https://github.com/RichardLitt/standard-readme
-
-[npm-badge]: https://img.shields.io/npm/v/@paperist/remark-crossref.svg?style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAbUExURcwAAOeIiP////G7u/ri4tIZGdpFReJsbPC3t075sZwAAAAvSURBVCjPY2CgDWAThIMEsACjEhwIUCZg0dGCIqASwMAxMgXAgSzOwMAOC2TqAwBvzR4JxLaP0gAAAABJRU5ErkJggg==
-[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIGNIUk0AAHomAACAhAAA%2BgAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAVUExURSBTICJcIiNgIiZoJTuhNyt3Kf///%2BCqxSgAAAAGdFJOUwpclbn%2B4Fj6/H8AAAABYktHRAZhZrh9AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH4AkEEjEV7MDQQwAAAGBJREFUCNc1TUEKgDAMi07vE/Q%2BRD8g%2B4BbvAvi/79iMjDQJm1CC6BbDzRsZI3incIpYeYFhCaYnLiyPYnYkwWZFWoFHrSuttCmmbwXh0eJQYVON4JthZTxCzzAmyb8%2BAAKXBRyN6RyZQAAAABJRU5ErkJggg==
-[standard-readme-badge]: https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square
+[npm-badge]: https://flat.badgen.net/npm/v/@paperist/remark-crossref
+[license-badge]: https://flat.badgen.net/badge/license/MIT/blue
+[standard-readme-badge]: https://flat.badgen.net/badge/standard-readme/OK/green
 
 > [wooorm/remark] plugin for corss-references inspired by [pandoc-crossref]
 
@@ -44,10 +43,12 @@ const markdown = `
 See sec.[@sec:first].
 `;
 
-const processor = unified().use(parser).use(crossref);
+const processor = unified()
+  .use(parser)
+  .use(crossref);
 const ast = processor.parse(markdown);
 
-processor.run(ast).then(ast => {
+processor.run(ast).then((ast) => {
   console.dir(ast, { depth: null });
 });
 ```
@@ -61,10 +62,10 @@ See also [mdast], [unist].
 
 ### `CrossReferenceLabel`
 
-`CrossReferenceLabel` extends [`Text`][unist-text].
+`CrossReferenceLabel` extends [`Literal`][unist-literal].
 
 ```typescript
-interface CrossReferenceLabel extends Text {
+interface CrossReferenceLabel extends Literal {
   type: 'crossReferenceLabel';
   label: string;
   options: { [key: string]: any };
@@ -86,7 +87,7 @@ Yields:
   "children": [
     {
       "type": "text",
-      "value": "Heading ",
+      "value": "Heading "
     },
     {
       "type": "crossReferenceLabel",
@@ -100,10 +101,10 @@ Yields:
 
 ### `CrossReference`
 
-`CrossReference` extends [`Text`][unist-text].
+`CrossReference` extends [`Literal`][unist-literal].
 
 ```typescript
-interface CrossReference extends Text {
+interface CrossReference extends Literal {
   type: 'crossReference';
   identifiers: string[];
 }
@@ -128,16 +129,13 @@ Yields:
     {
       "type": "crossReference",
       "value": "[@sec:first;@sec:second]",
-      "identifiers": [
-        "sec:first",
-        "sec:second"
-      ]
+      "identifiers": ["sec:first", "sec:second"]
     }
   ]
 }
 ```
 
-[unist-text]: https://github.com/syntax-tree/unist#text
+[unist-literal]: https://github.com/syntax-tree/unist#literal
 
 ## Contribute
 
@@ -145,6 +143,4 @@ PRs accepted.
 
 ## License
 
-![3846masa] MIT (c) 3846masa
-
-[3846masa]: https://www.gravatar.com/avatar/cfeae69aae4f4fc102960f01d35d2d86?s=50
+[MIT (c) 3846masa](https://3846masa.mit-license.org)
